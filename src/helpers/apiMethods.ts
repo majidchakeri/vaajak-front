@@ -42,15 +42,15 @@ const get = async (url: string, params?: {}) => {
 };
 
 const post = async (url: string, params = {}) => {
-  	return await api.post(url, params);
+  return await api.post(url, params);
 };
 
 const put = async (url: string, params = {}) => {
-return await api.put(url, params);
+  return await api.put(url, params);
 };
 
 const del = async (url: string, params = {}) => {
-return await api.delete(url, params);
+  return await api.delete(url, params);
 };
 
 const Api = {
@@ -80,6 +80,12 @@ const Api = {
       },
       deletePoll: async (id: string | number | null) => {
         const response = await del(`Poll/Delete?id=${id}`);
+        return response.data;
+      },
+    },
+    package: {
+      getPackageList: async () => {
+        const response = await get(`package/GetList`);
         return response.data;
       },
     },
